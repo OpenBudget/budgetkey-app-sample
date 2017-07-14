@@ -1,8 +1,10 @@
 import { browser, element, by } from 'protractor';
 
+import { GREETING } from '../app/config';
+
 describe('QuickStart E2E Tests', function () {
 
-  let expectedMsg = 'Hello Angular';
+  let expectedMsg = GREETING;
 
   beforeEach(function () {
     browser.get('');

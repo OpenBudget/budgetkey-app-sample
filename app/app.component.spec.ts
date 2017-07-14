@@ -1,8 +1,13 @@
+import 'karma-test-shim';
+
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { BudgetKeyCommonModule } from 'budgetkey-ng2-components';
 import { AppComponent } from './app.component';
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import * as config from './config';
 
 describe('AppComponent', function () {
   let de: DebugElement;
@@ -10,7 +15,8 @@ describe('AppComponent', function () {
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
+      imports: [ BudgetKeyCommonModule ],
       declarations: [ AppComponent ]
     })
     .compileComponents();
@@ -27,7 +33,7 @@ describe('AppComponent', function () {
   it('should have expected <h1> text', () => {
     fixture.detectChanges();
     const h1 = de.nativeElement;
-    expect(h1.innerText).toMatch(/angular/i,
+    expect(h1.innerText).toEqual(config.GREETING,
       '<h1> should say something about "Angular"');
   });
 });
