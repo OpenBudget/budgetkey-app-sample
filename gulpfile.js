@@ -43,7 +43,9 @@ gulp.task('clean:ts', function () {
     './app/**/*.js',
     './app/**/*.js.map',
     './e2e/**/*.js',
-    './e2e/**/*.js.map'
+    './e2e/**/*.js.map',
+    './karma-test-shim.js',
+    './karma-test-shim.js.map'
   ], {
     read: false
   }).pipe(clean());
